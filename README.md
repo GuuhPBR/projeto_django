@@ -23,7 +23,7 @@ A configuração padrão do banco esta definida da seguinte forma:
 ```
 Mas fique a vontade para definir as credenciais conforme desejar
 
-## Available Scripts
+## Scripts adicionais
 
 Dentro do projeto, para inicia-lo, você deve executar os seguintes comandos:
 #### iniciar web server
