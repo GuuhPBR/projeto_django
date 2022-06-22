@@ -30,7 +30,7 @@
                         <td>{{ endereco.cidade }}</td>
                         <td>{{ endereco.uf }}</td>
                         <td>{{ endereco.descricao }}</td>
-                        <td><a  href="{% url 'remover_endereco' endereco.id %}" class="btn btn-danger float-right" type="button"> Remover </a></td>
+                        <td><a  href="{% url 'remover_endereco' endereco.id %}" class="btn btn-danger float-right" type="button" onclick="return confirm('Tem certeza que deseja remover?');"> Remover </a></td>
                     </tr>
                 {% endfor %}
                 {% else %}
