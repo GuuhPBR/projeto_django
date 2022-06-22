@@ -44,6 +44,7 @@ def cadastrar_endereco(request):
       lista.cidade = request.POST['cidade']
       lista.complemento = request.POST['complemento']
       lista.descricao = request.POST['descricao']
+      lista.save()
       messages.success(request, msg)
       return redirect('index')
     else:  
