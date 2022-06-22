@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">Cadastro de Endereço</h1>
+        {% include 'partials/_alertas.html' %}
+        <form class="row g-3 mt-5" action="{% url 'cadastrar_endereco' %}" method="POST">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label for="inputEndereco" class="form-label">Endereço</label>
+                <input type="text" class="form-control" id="inputEndereco" name="endereco" required>
+            </div>
+            <div class="col-md-2">
+                <label for="inputNumero" class="form-label">Número</label>
+                <input type="text" class="form-control" id="inputNumero" name="numero" required>
+            </div>
+            <div class="col-md-2">
+                <label for="inputCep" class="form-label">CEP</label>
+                <input type="number" class="form-control" id="inputCep" name="cep" maxlength="8" required>
+            </div>
+            <div class="col-2 mt-4">
+                <a id="busca_cep" class="btn btn-primary mt-4 pt-1">Buscar CEP</a>
+            </div>
+                <div class="col-12">
+                <label for="inputComplemento" class="form-label">Complemento</label>
+                <input type="text" class="form-control" id="inputComplemento" name="complemento" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputBairro" class="form-label">Bairro</label>
+                <input type="text" class="form-control" id="inputBairro" name="bairro" required>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCidade" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="inputCidade" name="cidade" required>
+            </div>
+            <div class="col-md-4">
+                <label for="inputUf" class="form-label">UF </label>
+                <select id="inputUf" class="form-select" name="uf" required>
+                <option selected>UF...</option>
+                {% for municipio in municipios %}
+                    <option>{{ municipio }}</option>
+                {% endfor %}
+            </select>
+            </div>
+            <div class="col-12">
+                <label for="inputDescricao" class="form-label">Descrição</label>
+                <input type="text" class="form-control" id="inputDescricao" name="descricao" required>
+            </div>
+            <div class="d-grid gap-2 d-md-block">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <a href="{% url 'index' %}"class="btn btn-success">voltar</a>
+                
+            </div>
+        </form>
+    </div>
+    <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'js/viacep.js' %}"></script>
+{% endblock %}

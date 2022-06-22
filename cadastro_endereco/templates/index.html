@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">  
+        <h1 class="text-center"> Lista De Endereços</h1>
+        {% include 'partials/_alertas.html' %}
+        <table class="table table-dark table-hover mt-5">
+            <thead>
+            <tr>
+                <th scope="col">Cep</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Número</th>
+                <th scope="col">Complemento</th>
+                <th scope="col">Bairro</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">UF</th>
+                <th scope="col">Descrição</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                {% if enderecos %}
+                {% for endereco in enderecos %}
+                    <tr>
+                        <td>{{ endereco.cep }}</td>
+                        <td>{{ endereco.endereco }}</td>
+                        <td>{{ endereco.numero }}</td>
+                        <td>{{ endereco.complemento }}</td>
+                        <td>{{ endereco.bairro }}</td>
+                        <td>{{ endereco.cidade }}</td>
+                        <td>{{ endereco.uf }}</td>
+                        <td>{{ endereco.descricao }}</td>
+                        <td><a  href="{% url 'remover_endereco' endereco.id %}" class="btn btn-danger float-right" type="button"> Remover </a></td>
+                    </tr>
+                {% endfor %}
+                {% else %}
+                {% endif %}
+            </tbody>
+        </table> 
+        <div class="d-grid gap-2 d-md-block ">
+            <a  class="btn btn-primary float-right mt-3" href="{% url 'adicionarItem' %}" type="button">Cadastrar </a>
+        </div>
+    </div>   
+{% endblock %}
+
