@@ -21,6 +21,11 @@ A configuração padrão do banco esta definida da seguinte forma:
         'HOST': 'localhost'
     }
 ```
+
+## DER cadastro de endereços
+![cadastro_endereco_lista](https://user-images.githubusercontent.com/80047895/175180996-a32e7d80-63fe-4d98-9471-3636ceb3f219.PNG)
+
+
 Mas fique a vontade para definir as credenciais conforme desejar
 
 ## Scripts adicionais
